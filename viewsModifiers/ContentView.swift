@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    
     @State private var useRedText = false
     
     var body: some View {
