@@ -9,14 +9,27 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var useRedText = false
     
     var body: some View {
-        Button("Tap me!") {
-            self.useRedText.toggle()
+        VStack(spacing: 50) {
+            CapsuleText(text: "Elon Musk")
+                .background(Color.yellow)
+            CapsuleText(text: "Bill Gates")
+                .background(Color.gray)
         }
-        .foregroundColor(useRedText ? .red : .green)
+            
     }
+}
+
+struct CapsuleText: View {
+    var text: String
+    var body: some View {
+        Text(text)
+            .font(.largeTitle)
+            .padding()
+            .foregroundColor(.white)
+    }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
