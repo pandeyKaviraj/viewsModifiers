@@ -11,26 +11,29 @@ import SwiftUI
 struct ContentView: View {
     
     var body: some View {
-        VStack(spacing: 50) {
-            CapsuleText(text: "Elon Musk")
-                .background(Color.yellow)
-            CapsuleText(text: "Bill Gates")
-                .background(Color.gray)
-        }
-            
+        Text("Hello World")
+        .titleStyle()
     }
 }
 
-struct CapsuleText: View {
-    var text: String
-    var body: some View {
-        Text(text)
-            .font(.largeTitle)
-            .padding()
-            .foregroundColor(.white)
+extension View {
+    func titleStyle() -> some View {
+        self.modifier(Title())
     }
-    
 }
+
+//Custom structure for new style
+struct Title: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.largeTitle)
+            .foregroundColor(.white)
+            .padding()
+            .background(Color.blue)
+            .clipShape(Capsule())
+    }
+}
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
